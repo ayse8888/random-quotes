@@ -4,7 +4,7 @@ And it creates random quotes. When you click the refresh button, \
 each time you will get another random quote. \
 You can find my Medium Article about React Native
 and what I have learnt while building this project \
-The link is below
+The link is below \
 https://aysebasar.medium.com/react-native-b998f54120ba
 
 # Features and Technologies
