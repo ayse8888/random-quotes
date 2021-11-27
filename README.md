@@ -1,9 +1,9 @@
 # random-quotes app
 This app is built with React Native. \
 And it creates random quotes. When you click the refresh button, \
-each time you will get another random quote.
-You can find my Medium Article about React Native and what
-I have learnt whle building this project
+each time you will get another random quote. \
+You can find my Medium Article about React Native  \ and what
+I have learnt whle building this project  \
 The link is below
 
 # Features and Technologies
