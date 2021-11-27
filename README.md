@@ -16,7 +16,7 @@ https://aysebasar.medium.com/react-native-b998f54120ba
 # How I Build This Project ?
 1. Searched about React Native "What is it ? Why do we use it ?"
 2. Watched videos and read documentation to understand more about the logic and syntax
-3. Setting the environment time
+3. "Setting the environment" time
 4. Checked my node version
 5. Installed npm install -g expo-cli
 6. Created and empty project with expo init project-name
