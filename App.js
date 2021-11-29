@@ -1,13 +1,13 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { StyleSheet, Text, View, Pressable, SafeAreaView, ScrollView, TouchableOpacity } from 'react-native';
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 
 
 export default function App() {
   const [quotes, setQuotes] = useState([]);
+  // const [quoteColor, setQuoteColor] = useState("");
 
-  // const quoteRef = useRef();
   // let colors = ["#ffff00", "#90ee90","#ffa500", "#ff68ff", "#a9a9e7"]
 
   const getQuotes = () => fetch('https://quotable.io/quotes?page=1')
@@ -18,20 +18,17 @@ export default function App() {
     }
     );
 
-
-
   useEffect(() => {
     getQuotes()
   }, [])
 
   // useEffect(() => {
-  //   quoteRef.current.style.color = colors[Math.floor(Math.random() * colors.length)]
+  //   setQuoteColor(colors[Math.floor(Math.random() * colors.length)])
   // }, [quotes])
 
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView>
-        {/* {quotes.map(quote => <Text key={quote._id}>{quote.content}</Text>)} */}
         <View style={styles.quoteCard}>
           <Text style={styles.quoteText}>{quotes.content}</Text>
           <TouchableOpacity>
