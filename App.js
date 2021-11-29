@@ -18,6 +18,10 @@ export default function App() {
     }
     );
 
+    // in the api, there were a lot options and there was 
+    // "https://api.quotable.io/random api as well 
+    // but i preferred to fetch that one
+
   useEffect(() => {
     getQuotes()
   }, [])
