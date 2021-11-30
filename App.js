@@ -6,11 +6,11 @@ import { useState, useEffect } from 'react';
 
 export default function App() {
   const [quotes, setQuotes] = useState([]);
-  // const [quoteColor, setQuoteColor] = useState("");
+  const [quoteColor, setQuoteColor] = useState("");
 
-  // let colors = ["#ffff00", "#90ee90","#ffa500", "#ff68ff", "#a9a9e7"]
+  let colors = ["#d62828", "#7b2cbf","#ff006e", "#2dc653", "#f0ead2"]
 
-  const getQuotes = () => fetch('https://quotable.io/quotes?page=1')
+  const getQuotes = () => fetch('https://quotable.io/quotes')
     .then(response => response.json())
     .then(data => {
       let randomQuote = Math.floor(Math.random() * data.results.length);
@@ -18,23 +18,19 @@ export default function App() {
     }
     );
 
-    // in the api, there were a lot options and there was 
-    // "https://api.quotable.io/random api as well 
-    // but i preferred to fetch that one
-
   useEffect(() => {
     getQuotes()
   }, [])
 
-  // useEffect(() => {
-  //   setQuoteColor(colors[Math.floor(Math.random() * colors.length)])
-  // }, [quotes])
+  useEffect(() => {
+    setQuoteColor(colors[Math.floor(Math.random() * colors.length)])
+  }, [quotes])
 
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView>
         <View style={styles.quoteCard}>
-          <Text style={styles.quoteText}>{quotes.content}</Text>
+          <Text style={{color: quoteColor}}>{quotes.content}</Text>
           <TouchableOpacity>
             <Pressable
               style={styles.btn}
