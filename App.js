@@ -13,10 +13,10 @@ export default function App() {
   const getQuotes = () => fetch('https://quotable.io/quotes')
     .then(response => response.json())
     .then(data => {
-      let randomQuote = Math.floor(Math.random() * data.results.length);
-      setQuotes(data.results[randomQuote])
-    }
-  );
+        let randomQuote = Math.floor(Math.random() * data.results.length);
+        setQuotes(data.results[randomQuote])
+      }
+    );
 
   useEffect(() => {
     getQuotes()
