@@ -8,7 +8,7 @@ The link is below \
 https://aysebasar.medium.com/react-native-b998f54120ba
 
 # Features and Technologies
-- Generates random quotes
+- Generates random quotes and random text colors
 - Refresh functionality
 - Expo CLI
 - APK file for Android Devices
