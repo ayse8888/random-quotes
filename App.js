@@ -16,7 +16,7 @@ export default function App() {
       let randomQuote = Math.floor(Math.random() * data.results.length);
       setQuotes(data.results[randomQuote])
     }
-    );
+  );
 
   useEffect(() => {
     getQuotes()
