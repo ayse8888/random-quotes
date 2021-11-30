@@ -19,7 +19,7 @@ https://aysebasar.medium.com/react-native-b998f54120ba
 3. "Setting the environment" time
 4. Checked my node version
 5. Installed "npm install -g expo-cli"
-6. Created and empty project with "expo init project-name"
+6. Created an empty project with "expo init project-name"
 7. npm start
 8. Downloaded Expo Go to my android phone
 9. Opened the project in real time ( real device ) with QR code
