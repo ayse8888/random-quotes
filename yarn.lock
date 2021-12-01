@@ -1040,6 +1040,11 @@
     exec-sh "^0.3.2"
     minimist "^1.2.0"
 
+"@expo-google-fonts/ubuntu@^0.2.0":
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/@expo-google-fonts/ubuntu/-/ubuntu-0.2.0.tgz#ebc2d3804f8fd63cb832215ff5b3ea356d9c48ff"
+  integrity sha512-Xgd7WKW5vbMy/uFljIEm5oWUravKCdjXeVHsigzkRYR7WFEnUAqewNO/Wr/w4snjAoHoyrAJeijXX64OPJGAnA==
+
 "@expo/config-plugins@3.1.0":
   version "3.1.0"
   resolved "https://registry.yarnpkg.com/@expo/config-plugins/-/config-plugins-3.1.0.tgz#0752ff33c5eab21cf42034a44e79df97f0f867f8"

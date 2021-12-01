@@ -4,42 +4,55 @@ import { StyleSheet, Text, View, Pressable, SafeAreaView, ScrollView, TouchableO
 import { useState, useEffect } from 'react';
 
 
+
 export default function App() {
   const [quotes, setQuotes] = useState([]);
-  const [quoteColor, setQuoteColor] = useState("");
+  // const [quoteColor, setQuoteColor] = useState("");
 
-  let colors = ["#d62828", "#7b2cbf","#ff006e", "#2dc653", "#f0ead2"]
+  // let colors = ["#d62828", "#7b2cbf","#ff006e", "#2dc653", "#f0ead2"]
 
   const getQuotes = () => fetch('https://quotable.io/quotes')
     .then(response => response.json())
     .then(data => {
-        let randomQuote = Math.floor(Math.random() * data.results.length);
-        setQuotes(data.results[randomQuote])
-      }
+      let randomQuote = Math.floor(Math.random() * data.results.length);
+      setQuotes(data.results[randomQuote])
+    }
     );
 
   useEffect(() => {
     getQuotes()
   }, [])
 
-  useEffect(() => {
-    setQuoteColor(colors[Math.floor(Math.random() * colors.length)])
-  }, [quotes])
+  // useEffect(() => {
+  //   setQuoteColor(colors[Math.floor(Math.random() * colors.length)])
+  // }, [quotes])
 
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView>
-        <View style={styles.quoteCard}>
-          <Text style={{color: quoteColor}}>{quotes.content}</Text>
-          <TouchableOpacity>
-            <Pressable
-              style={styles.btn}
-              onPress={getQuotes}>
-                <Text style={styles.btnText}>REFRESH</Text>
-            </Pressable>
-          </TouchableOpacity>
+        <View style={styles.titleContainer}>
+          <Text style={styles.title}>Random Quote</Text>
         </View>
-        <StatusBar style="auto" />
+        <View style={styles.quoteCard}>
+          <Text style={styles.cardContent}>{quotes.content}</Text>
+          <Text style={styles.cardAuthor}>- {quotes.author}</Text>
+          <View style={styles.tagBtnContainer}>
+            <TouchableOpacity style={styles.tagBtn}>
+              <Text style={styles.cardContent}>tag-1</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.tagBtn}>
+              <Text style={styles.cardContent}>famous-tags</Text>
+            </TouchableOpacity>
+          </View>
+        </View>
+        <TouchableOpacity>
+          <Pressable
+            style={styles.refreshBtn}
+            onPress={getQuotes}>
+            <Text style={styles.refreshBtnText}>Bring me a new quote</Text>
+          </Pressable>
+        </TouchableOpacity>
+        <StatusBar backgroundColor="#767c96" style="auto" />
       </ScrollView>
     </SafeAreaView>
   );
@@ -48,40 +61,76 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#8ecae6',
+    backgroundColor: '#eff1f8',
     alignItems: 'center',
     justifyContent: 'center',
-    paddingHorizontal: 20,
-    paddingTop: Platform.OS === 'android' ? 55 : 0,
+    paddingHorizontal: 0,
+    paddingTop: Platform.OS === 'android' ? 24 : 0,
   },
   quoteCard: {
-    backgroundColor: '#023047',
+    backgroundColor: '#767c96',
     paddingHorizontal: 20,
-    paddingVertical: 50,
-    borderRadius: 20,
-    borderColor: "#ffb703",
-    borderLeftWidth: 4,
-    borderRightWidth: 4,
-    borderTopWidth: 4,
-    borderBottomWidth : 4,
+    paddingTop: 50,
+    paddingBottom: 10,
+    marginHorizontal: 0,
     flexDirection: 'column',
-    alignItems: 'center'
+    alignItems: 'center',
+    justifyContent: 'center',
   },
-  btn: {
-    width: 150,
-    borderRadius: 10,
+  refreshBtn: {
+    width: 300,
+    borderRadius: 30,
     marginTop: 25,
-    backgroundColor: "#fb8500",
-    padding: 10, 
+    backgroundColor: "#687089",
+    paddingVertical: 10,
+    paddingHorizontal: 30,
+    alignSelf: 'center'
   },
-  btnText: {
+  refreshBtnText: {
     textAlign: 'center',
-    color: "#fff",
-    fontWeight: 'bold'
+    color: "#eff1f8",
+    fontWeight: 'bold',
   },
   quoteText: {
     color: "#fff",
-    fontWeight: 'bold'
-  }
+    fontWeight: 'bold',
+  },
+  title: {
+    color: "#eff1f8",
+    textAlign: 'center',
+    fontSize: 20
+  },
+  titleContainer: {
+    paddingTop: 15,
+    paddingBottom: 15,
+    backgroundColor: "#767c96",
+    borderColor: "#8e94a8",
+    borderTopWidth: 3,
+    borderBottomWidth: 3,
+  },
+  cardContent: {
+    textAlign: 'center',
+    color: "#eff1f8",
+  },
+  cardAuthor: {
+    color: "#eff1f8",
+    marginBottom: 60,
+    marginTop: 20
+  },
+  tagBtnContainer: {
+    flexDirection: 'row',
+    alignSelf: 'flex-end'
+  },
+  tagBtn: {
+    backgroundColor: "#959aad",
+    paddingHorizontal: 10,
+    paddingVertical: 5,
+    marginLeft: 10,
+    shadowColor: '#000',
+    shadowOpacity: 0.8,
+    shadowOffset: { width: 0, height: 2 },
+    shadowRadius: 10,
+    elevation: 5,
+  },
 });
 
