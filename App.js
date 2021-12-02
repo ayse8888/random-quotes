@@ -14,9 +14,9 @@ export default function App() {
   const getQuotes = () => fetch('https://quotable.io/quotes')
     .then(response => response.json())
     .then(data => {
-        let randomQuote = Math.floor(Math.random() * data.results.length);
-        setQuotes(data.results[randomQuote])
-      }
+      let randomQuote = Math.floor(Math.random() * data.results.length);
+      setQuotes(data.results[randomQuote])
+    }
     );
 
   useEffect(() => {
@@ -38,11 +38,17 @@ export default function App() {
           <Text style={styles.cardAuthor}>- {quotes.author}</Text>
           <View style={styles.tagBtnContainer}>
             <TouchableOpacity style={styles.tagBtn}>
-              <Text style={styles.cardContent}>tag-1</Text>
+              <Text style={styles.cardContent}>tags</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={styles.tagBtn}>
-              <Text style={styles.cardContent}>{quotes.tags ? quotes.tags : "no-tag"}</Text>
-            </TouchableOpacity>
+            {
+              quotes.tags ? quotes.tags.map((quote, i) => {
+                return (
+                  <TouchableOpacity style={styles.tagBtn} key={i}>
+                    <Text style={styles.cardContent}>{quote}</Text>
+                  </TouchableOpacity>
+                );
+              }) : <Text style={styles.cardContent}>no tag</Text>
+            }
           </View>
         </View>
         <TouchableOpacity>
@@ -134,4 +140,3 @@ const styles = StyleSheet.create({
     elevation: 5,
   },
 });
-
